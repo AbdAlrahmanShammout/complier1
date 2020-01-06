@@ -6,6 +6,7 @@ import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
 import Java.AST.rule.assignmentVar.AssignmentJavaVar;
 import Java.AST.rule.declareJavaArray.DeclareJavaArray;
 import Java.AST.rule.declareVar.DeclareJavaVar;
+import Java.AST.rule.declareVarNotAssignmen.DeclareJavaVarNotAssignment;
 import Java.AST.rule.doWhile_stmt.DoWhileJavaRule;
 import Java.AST.rule.for_stmt.ForJavaHeader;
 import Java.AST.rule.for_stmt.ForJavaRule;
@@ -70,6 +71,15 @@ public class BaseASTVisitor implements ASTVisitor {
         System.out.println("ast DeclareJavaVar ");
         System.out.println("---------------");
 
+    }
+
+    @Override
+    public void visit(DeclareJavaVarNotAssignment declareJavaVarNotAssignment) {
+        System.out.println("ast DeclareJavaVarNotAssignment ");
+        for (int i = 0; i < declareJavaVarNotAssignment.getNamesVar().size(); i++) {
+            System.out.println("ast DeclareJavaVarNotAssignment namesVar : "+declareJavaVarNotAssignment.getNamesVar().get(i));
+        }
+        System.out.println("---------------");
     }
 
     @Override

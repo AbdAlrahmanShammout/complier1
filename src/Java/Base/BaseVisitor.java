@@ -9,6 +9,7 @@ import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
 import Java.AST.rule.assignmentVar.AssignmentJavaVar;
 import Java.AST.rule.declareJavaArray.DeclareJavaArray;
 import Java.AST.rule.declareVar.DeclareJavaVar;
+import Java.AST.rule.declareVarNotAssignmen.DeclareJavaVarNotAssignment;
 import Java.AST.rule.doWhile_stmt.DoWhileJavaRule;
 import Java.AST.rule.for_stmt.ForJavaHeader;
 import Java.AST.rule.for_stmt.ForJavaRule;
@@ -133,6 +134,15 @@ public class BaseVisitor extends SqlBaseVisitor {
         DeclareJavaVar declareJavaVar = new DeclareJavaVar();
         declareJavaVar.setAssignmentJavaListVar(visitAssignment_var_list_java(ctx.assignment_var_list_java()));
         return declareJavaVar;
+    }
+
+    @Override
+    public DeclareJavaVarNotAssignment visitDeclare_var_java_not_assignmen(SqlParser.Declare_var_java_not_assignmenContext ctx) {
+        DeclareJavaVarNotAssignment declareJavaVarNotAssignment = new DeclareJavaVarNotAssignment();
+        for (int i = 0; i < ctx.IDENTIFIER().size(); i++) {
+            declareJavaVarNotAssignment.getNamesVar().add(ctx.IDENTIFIER(i).getText());
+        }
+        return declareJavaVarNotAssignment;
     }
 
     @Override
@@ -430,6 +440,10 @@ public class BaseVisitor extends SqlBaseVisitor {
             DeclareJavaVar declareJavaVar = visitDeclare_var_java(ctx.declare_var_java());
             return declareJavaVar;
         }
+        if (ctx.declare_var_java_not_assignmen() != null){
+            DeclareJavaVarNotAssignment declareJavaVarNotAssignment = visitDeclare_var_java_not_assignmen(ctx.declare_var_java_not_assignmen());
+            return declareJavaVarNotAssignment;
+        }
         if (ctx.assignment_var_list_java() != null){
             AssignmentJavaListVar assignmentJavaListVar = visitAssignment_var_list_java(ctx.assignment_var_list_java());
             return assignmentJavaListVar;
@@ -438,9 +452,13 @@ public class BaseVisitor extends SqlBaseVisitor {
             DeclareJavaArray declareJavaArray = visitDeclare_array_java(ctx.declare_array_java());
             return declareJavaArray;
         }
+        if (ctx.shorten_operators_java() != null){
+            ShortenJavaOperators shortenJavaOperators = visitShorten_operators_java(ctx.shorten_operators_java());
+            return shortenJavaOperators;
+        }
         if (ctx.switch_stmt() != null){
-            SwitchJavaRule declareJavaArray = visitSwitch_stmt(ctx.switch_stmt());
-        return declareJavaArray;
+            SwitchJavaRule switchJavaRule = visitSwitch_stmt(ctx.switch_stmt());
+        return switchJavaRule;
         }
         if (ctx.function_java_call() != null){
             FunctionJavaCall functionJavaCall = visitFunction_java_call(ctx.function_java_call());

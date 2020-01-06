@@ -6,6 +6,7 @@ import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
 import Java.AST.rule.assignmentVar.AssignmentJavaVar;
 import Java.AST.rule.declareJavaArray.DeclareJavaArray;
 import Java.AST.rule.declareVar.DeclareJavaVar;
+import Java.AST.rule.declareVarNotAssignmen.DeclareJavaVarNotAssignment;
 import Java.AST.rule.doWhile_stmt.DoWhileJavaRule;
 import Java.AST.rule.for_stmt.ForJavaHeader;
 import Java.AST.rule.for_stmt.ForJavaRule;
@@ -40,6 +41,8 @@ public interface ASTVisitor {
     void visit(DeclareJavaArray declareJavaArray);
 
     void visit(DeclareJavaVar declareJavaVar);
+
+    void visit(DeclareJavaVarNotAssignment declareJavaVarNotAssignment);
 
     void visit(DoWhileJavaRule doWhileJavaRule);
 
@@ -94,6 +97,7 @@ public interface ASTVisitor {
     void visit(JavaStmtList javaStmtList);
 
     void visit(Expr expr);
+
 
 
 //    public void visit(SwitchJavaRule switchJavaRule);

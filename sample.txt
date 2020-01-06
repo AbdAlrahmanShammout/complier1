@@ -1,5 +1,20 @@
-vvv(var a, var t, var k){
-aa=4;
-var bb=4;
-cc=4;
+func(var x, var y){
+ if(x *2 == y){
+   return x == y;
+   }else{
+     if(x+6  > y ){
+        return "x + 6 biggeer than y";
+     }
+     if(x+6  < y ){
+        return "x + 6 lower than y";
+     }
+     if(x *6 + y <= x*6){
+        return x +y > x*y ? x : y;
+     }
+     if(true){
+       return x == y ;
+     }
+
+   }
+   return x == y ;
 }

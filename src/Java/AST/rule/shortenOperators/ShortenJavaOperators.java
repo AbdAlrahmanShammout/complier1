@@ -3,8 +3,9 @@ package Java.AST.rule.shortenOperators;
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.Expr;
+import Java.AST.rule.JavaBody;
 
-public class ShortenJavaOperators extends Node {
+public class ShortenJavaOperators extends JavaBody {
     private String name;
     private String operator;
     private Expr exprVal;

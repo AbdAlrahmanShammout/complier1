@@ -1,216 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4206ed3d-8ee9-4ed6-9e0c-2e52d779ee17" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/StatementList.java" afterDir="false" />
+    <list default="true" id="4206ed3d-8ee9-4ed6-9e0c-2e52d779ee17" name="Default" comment="need Expr&#10;all error is fix">
+      <change afterPath="$PROJECT_DIR$/src/Java/AST/rule/declareVarNotAssignmen/DeclareJavaVarNotAssignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/FunctionDeclaration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/Parse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/Parse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/QueryStmt/Statement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/QueryStmt/Statement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/BodyBracketsJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/BodyBracketsJava.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/ConditionJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/ConditionJava.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/Expr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/Expr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/JavaBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/JavaBody.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/JavaStmtList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/JavaStmtList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/assignmentVar/AssignmentJavaListVar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/assignmentVar/AssignmentJavaListVar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/assignmentVar/AssignmentJavaVar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/assignmentVar/AssignmentJavaVar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/declareJavaArray/DeclareJavaArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/declareJavaArray/DeclareJavaArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/declareVar/DeclareJavaVar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/declareVar/DeclareJavaVar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/for_stmt/ForJavaHeader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/for_stmt/ForJavaHeader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/for_stmt/ForJavaRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/for_stmt/ForJavaRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/DefaultParameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/DefaultParameters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/FunctionJavaHeader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/FunctionJavaHeader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/FunctionJavaRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/FunctionJavaRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/ParametersList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/function/ParametersList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/if_stmt/IfBasicJavaRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/if_stmt/IfBasicJavaRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/if_stmt/IfJavaRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/if_stmt/IfJavaRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/shortenOperators/ShortenJavaOperators.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/shortenOperators/ShortenJavaOperators.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/switch_stmt/SwitchJavaCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/switch_stmt/SwitchJavaCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/switch_stmt/SwitchJavaRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/AST/rule/switch_stmt/SwitchJavaRule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/Base/BaseVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/Base/BaseVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Java/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/Sql.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/Sql.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/Sql.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/Sql.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/Sql.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/Sql.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlBaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlBaseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlBaseVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlBaseVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Alter_table_addContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Alter_table_addContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Alter_table_add_constraintContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Alter_table_add_constraintContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Alter_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Alter_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Analyze_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Analyze_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Any_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Any_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Any_name_no_keywordContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Any_name_no_keywordContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Arguments_listContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Arguments_listContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ArrayContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ArrayContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Arrow_function_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Arrow_function_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Assignment_var_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Assignment_var_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Assignment_var_list_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Assignment_var_list_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Attach_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Attach_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Begin_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Begin_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Body_brackets_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Body_brackets_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Collation_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Collation_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_aliasContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_aliasContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraintContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraintContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_foreign_keyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_foreign_keyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_not_nullContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_not_nullContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_nullContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_nullContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_primary_keyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_constraint_primary_keyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_defContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_defContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_defaultContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_defaultContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_default_valueContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_default_valueContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Column_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Commit_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Commit_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Common_table_expressionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Common_table_expressionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Compound_operatorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Compound_operatorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Compound_select_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Compound_select_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Condition_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Condition_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Conflict_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Conflict_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_index_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_index_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_trigger_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_trigger_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_view_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_view_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_virtual_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Create_virtual_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Cte_table_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Cte_table_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Database_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Database_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Declare_array_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Declare_array_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Declare_var_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Declare_var_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Default_parametersContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Default_parametersContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Delete_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Delete_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Delete_stmt_limitedContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Delete_stmt_limitedContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Detach_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Detach_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Do_while_java_ruleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Do_while_java_ruleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_index_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_index_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_trigger_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_trigger_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_view_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Drop_view_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ErrorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ErrorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Error_messageContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Error_messageContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ExprContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Factored_select_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Factored_select_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Fk_origin_column_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Fk_origin_column_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Fk_target_column_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Fk_target_column_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$For_java_headerContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$For_java_headerContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$For_java_ruleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$For_java_ruleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Foreign_key_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Foreign_key_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Foreign_tableContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Foreign_tableContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_callContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_callContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_headerContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_headerContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_ruleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_java_ruleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Function_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$If_basic_java_ruleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$If_basic_java_ruleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$If_java_ruleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$If_java_ruleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$If_one_lineContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$If_one_lineContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Index_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Index_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Indexed_columnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Indexed_columnContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Insert_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Insert_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Java_bodyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Java_bodyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Java_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Java_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Java_stmt_listContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Java_stmt_listContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Join_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Join_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Join_constraintContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Join_constraintContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Join_operatorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Join_operatorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$JsonContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$JsonContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Json_styleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Json_styleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Json_valContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Json_valContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$KeywordContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$KeywordContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Literal_valueContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Literal_valueContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Module_argumentContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Module_argumentContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Module_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Module_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$NameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$NameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$New_table_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$New_table_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Ordering_termContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Ordering_termContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Parameters_listContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Parameters_listContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ParseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$ParseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Pragma_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Pragma_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Pragma_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Pragma_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Pragma_valueContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Pragma_valueContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Print_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Print_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Qualified_table_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Qualified_table_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Raise_functionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Raise_functionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Reindex_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Reindex_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Release_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Release_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Result_columnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Result_columnContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Rollback_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Rollback_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Savepoint_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Savepoint_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Savepoint_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Savepoint_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Select_coreContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Select_coreContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Select_or_valuesContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Select_or_valuesContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Select_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Select_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Shorten_operators_javaContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Shorten_operators_javaContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Signed_numberContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Signed_numberContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Simple_select_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Simple_select_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Source_table_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Source_table_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Sql_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Sql_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Sql_stmt_listContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Sql_stmt_listContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Switch_caseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Switch_caseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Switch_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Switch_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_aliasContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_aliasContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraintContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraintContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_foreign_keyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_foreign_keyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_keyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_keyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_primary_keyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_primary_keyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_uniqueContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_constraint_uniqueContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_or_index_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_or_index_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_or_subqueryContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Table_or_subqueryContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Transaction_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Transaction_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Trigger_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Trigger_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Type_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Type_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Unary_operatorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Unary_operatorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$UnknownContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$UnknownContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Update_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Update_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Update_stmt_limitedContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Update_stmt_limitedContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Vacuum_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$Vacuum_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$View_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$View_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$While_java_headerContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$While_java_headerContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$While_java_ruleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$While_java_ruleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$With_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser$With_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compilerabd/gen/SqlVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/Parse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/Parse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Statement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Java/AST/Visitor/ASTVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/Visitor/ASTVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Java/AST/Visitor/BaseASTVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/Visitor/BaseASTVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/BodyBracketsJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/BodyBracketsJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/ConditionJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/ConditionJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/JavaBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/JavaBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/JavaStmtList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/JavaStmtList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/assignmentVar/AssignmentJavaVar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/assignmentVar/AssignmentJavaVar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/declareJavaArray/DeclareJavaArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/declareJavaArray/DeclareJavaArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/declareVar/DeclareJavaVar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/declareVar/DeclareJavaVar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/doWhile_stmt/DoWhileJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/doWhile_stmt/DoWhileJavaRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/for_stmt/ForJavaHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/for_stmt/ForJavaHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/for_stmt/ForJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/for_stmt/ForJavaRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function/DefaultParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function/DefaultParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function/FunctionJavaHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function/FunctionJavaHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function/FunctionJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function/FunctionJavaRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function/ParametersList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function/ParametersList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/Argument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/ArgumentsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/ArgumentsList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/ArrowFunctionJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/ArrowFunctionJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/FunctionJavaCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/function_java_call/FunctionJavaCall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/if_one_line/IfOneLineJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/if_one_line/IfOneLineJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/if_one_line/IfOneLineReturnJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/if_one_line/IfOneLineReturnJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/if_stmt/IfBasicJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/if_stmt/IfBasicJavaRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/if_stmt/IfJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/if_stmt/IfJavaRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/print/PrintJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/print/PrintJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/return_stmt/ReturnJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/return_stmt/ReturnJava.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/shortenOperators/ShortenJavaOperators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/shortenOperators/ShortenJavaOperators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/switch_stmt/SwitchJavaCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/switch_stmt/SwitchJavaCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/switch_stmt/SwitchJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/switch_stmt/SwitchJavaRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/while_stmt/WhileJavaHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/while_stmt/WhileJavaHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/AST/rule/while_stmt/WhileJavaRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/rule/while_stmt/WhileJavaRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Java/Base/BaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/Base/BaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sql.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sql.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/Sql.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/Sql.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/SqlVisitor.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -249,8 +58,9 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Abd Shammout\Documents\compiler\compilerAbdNew\src\Java\AST" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Abd Shammout\Documents\compiler\compilerAbdNew" />
+      <recent name="C:\Users\Abd Shammout\Documents\compiler\compilerAbdNew\src" />
       <recent name="C:\Users\Areej darweesh\IdeaProjects\compilerabd\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -258,9 +68,8 @@
       <recent name="Java.AST.rule.assignmentVar" />
       <recent name="Java.AST.rule.function" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Abd Shammout\Documents\compiler\compilerAbdNew" />
-      <recent name="C:\Users\Abd Shammout\Documents\compiler\compilerAbdNew\src" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Abd Shammout\Documents\compiler\compilerAbdNew\src\Java\AST" />
       <recent name="C:\Users\Areej darweesh\IdeaProjects\compilerabd\src" />
     </key>
   </component>
@@ -345,6 +154,14 @@
       <option name="presentableId" value="Default" />
       <updated>1577788492175</updated>
     </task>
+    <task id="LOCAL-00001" summary="need Expr&#10;all error is fix">
+      <created>1578294790981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578294790981</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -359,5 +176,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="need Expr&#10;all error is fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="need Expr&#10;all error is fix" />
   </component>
 </project>

@@ -289,6 +289,12 @@ vacuum_stmt
 
 
 //start java javd
+declare_var_java_not_assignmen
+  :
+  K_VAR
+  IDENTIFIER (','IDENTIFIER )*
+  ';'
+  ;
 
 declare_var_java
   :
@@ -399,6 +405,7 @@ for_java_header
 
 shorten_operators_java
   : any_name_no_keyword (  ('++' | '--')   |   ('+=' | '-=' | '/=' | '^=' | '%=' | '*=') expr)
+  | ('++' | '--') any_name_no_keyword
   ;
 
   if_java_rule
@@ -458,8 +465,10 @@ if_one_line_return
 
   java_body
   :(declare_var_java)
+  |(declare_var_java_not_assignmen)
   |(assignment_var_list_java)
   |(declare_array_java )
+  |(shorten_operators_java ';')
   |(switch_stmt )
   |(function_java_call)
   |(if_java_rule)
