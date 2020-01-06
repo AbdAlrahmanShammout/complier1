@@ -1,7 +1,7 @@
 package Java.AST.rule.declareJavaArray;
 
 import Java.AST.Visitor.ASTVisitor;
-import Java.AST.rule.Expr;
+import Java.AST.Expr;
 import Java.AST.rule.JavaBody;
 
 public class DeclareJavaArray extends JavaBody {

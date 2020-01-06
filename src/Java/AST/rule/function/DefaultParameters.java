@@ -2,7 +2,7 @@ package Java.AST.rule.function;
 
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
-import Java.AST.rule.Expr;
+import Java.AST.Expr;
 
 public class DefaultParameters extends Node {
 

@@ -1,20 +1,3 @@
-func(var x, var y){
- if(x *2 == y){
-   return x == y;
-   }else{
-     if(x+6  > y ){
-        return "x + 6 biggeer than y";
-     }
-     if(x+6  < y ){
-        return "x + 6 lower than y";
-     }
-     if(x *6 + y <= x*6){
-        return x +y > x*y ? x : y;
-     }
-     if(true){
-       return x == y ;
-     }
-
-   }
-   return x == y ;
-}
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 2;

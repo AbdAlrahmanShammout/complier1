@@ -2,7 +2,7 @@ package Java.AST.rule.assignmentVar;
 
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
-import Java.AST.rule.Expr;
+import Java.AST.Expr;
 
 public class AssignmentJavaVar extends Node {
     private String name;

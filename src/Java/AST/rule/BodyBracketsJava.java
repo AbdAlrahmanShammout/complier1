@@ -19,8 +19,10 @@ public class BodyBracketsJava extends Node {
     @Override
     public void accept(ASTVisitor astVisitor) {
         astVisitor.visit(this);
-        for (int i = 0; i < javaBodies.size(); i++) {
-            javaBodies.get(i).accept(astVisitor);
+        if (javaBodies!=null){
+            for (int i = 0; i < javaBodies.size(); i++) {
+                javaBodies.get(i).accept(astVisitor);
+            }
         }
     }
 }

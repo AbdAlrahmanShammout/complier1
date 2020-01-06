@@ -2,7 +2,7 @@ package Java.AST.rule.function_java_call;
 
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
-import Java.AST.rule.Expr;
+import Java.AST.Expr;
 import Java.AST.rule.function.ParametersList;
 
 public class ArrowFunctionJava extends Node {

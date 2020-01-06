@@ -3,9 +3,7 @@ package Java.AST.rule.if_one_line;
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.BodyBracketsJava;
-import Java.AST.rule.ConditionJava;
-import Java.AST.rule.Expr;
-import Java.AST.rule.JavaBody;
+import Java.AST.Expr;
 
 public class IfOneLineReturnJava extends Node {
     private Expr exprReturn;

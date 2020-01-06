@@ -2,7 +2,7 @@ package Java.AST.rule.switch_stmt;
 
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
-import Java.AST.rule.Expr;
+import Java.AST.Expr;
 import Java.AST.rule.JavaBody;
 
 import java.util.ArrayList;

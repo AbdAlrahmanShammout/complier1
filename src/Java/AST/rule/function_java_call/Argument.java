@@ -2,7 +2,7 @@ package Java.AST.rule.function_java_call;
 
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
-import Java.AST.rule.Expr;
+import Java.AST.Expr;
 
 public class Argument extends Node {
     private Expr expr;

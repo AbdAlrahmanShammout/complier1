@@ -1,6 +1,11 @@
 package Java.AST.Visitor;
 
+import Java.AST.Expr;
+import Java.AST.LiteralValue;
 import Java.AST.Parse;
+import Java.AST.QueryStmt.*;
+import Java.AST.QueryStmt.Create.*;
+import Java.AST.QueryStmt.Select.*;
 import Java.AST.rule.*;
 import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
 import Java.AST.rule.assignmentVar.AssignmentJavaVar;
@@ -22,6 +27,9 @@ import Java.AST.rule.if_one_line.IfOneLineJava;
 import Java.AST.rule.if_one_line.IfOneLineReturnJava;
 import Java.AST.rule.if_stmt.IfBasicJavaRule;
 import Java.AST.rule.if_stmt.IfJavaRule;
+import Java.AST.rule.json.JsonRule;
+import Java.AST.rule.json.JsonStyle;
+import Java.AST.rule.json.JsonVal;
 import Java.AST.rule.print.PrintJava;
 import Java.AST.rule.return_stmt.ReturnJava;
 import Java.AST.rule.shortenOperators.ShortenJavaOperators;
@@ -97,6 +105,59 @@ public interface ASTVisitor {
     void visit(JavaStmtList javaStmtList);
 
     void visit(Expr expr);
+
+    void visit(LiteralValue literalValue);
+
+    void visit(JsonRule jsonRule);
+
+    void visit(JsonStyle jsonStyle);
+
+    void visit(JsonVal jsonVal);
+
+    void visit(ColumnConstraint columnConstraint);
+
+    void visit(ColumnDef columnDef);
+
+    void visit(CreatStmt creatStmt);
+
+    void visit(IndexedColumn indexedColumn);
+
+    void visit(SignedNumber signedNumber);
+
+    void visit(TableConstraint tableConstraint);
+
+    void visit(TypeName typeName);
+
+    void visit(JoinOperator joinOperator);
+
+    void visit(OrderingTerm orderingTerm);
+
+    void visit(ResultColumn resultColumn);
+
+    void visit(SelectOrValues selectOrValues);
+
+    void visit(SelectStmt selectStmt);
+
+    void visit(TableOrSubquery tableOrSubquery);
+
+    void visit(AlterTableAddConstraint alterTableAddConstraint);
+
+    void visit(AlterTableStmt alterTableStmt);
+
+    void visit(DropTableStmt dropTableStmt);
+
+    void visit(InsertStmt insertStmt);
+
+    void visit(QualifiedTableName qualifiedTableName);
+
+    void visit(UpdateStmt updateStmt);
+
+    void visit(TC_ForeignKey tc_foreignKey);
+    void visit(TC_Key tc_key);
+    void visit(TC_Unique tc_unique);
+    void visit(ColumnDefault columnDefault);
+    void visit(Statement stmt);
+    void visit(ForeignKeyClause foreignKeyClause);
 
 
 

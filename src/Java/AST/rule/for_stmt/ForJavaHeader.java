@@ -3,9 +3,7 @@ package Java.AST.rule.for_stmt;
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.ConditionJava;
-import Java.AST.rule.Expr;
 import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
-import Java.AST.rule.assignmentVar.AssignmentJavaVar;
 import Java.AST.rule.shortenOperators.ShortenJavaOperators;
 
 public class ForJavaHeader extends Node {

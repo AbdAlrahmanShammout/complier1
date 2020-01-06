@@ -2,7 +2,6 @@ package Java.AST;
 
 import Java.AST.QueryStmt.Statement;
 //import Java.AST.Visitor.ASTVisitor;
-import Java.AST.QueryStmt.StatementList;
 import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.JavaStmtList;
 
@@ -10,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parse extends Node{
-    private List<StatementList> sqlStmtList = new ArrayList<>();
+    private List<Statement> sqlStmts = new ArrayList<Statement>();
     private List<JavaStmtList> javaStmtLists = new ArrayList<>();
 
 
-    public List<StatementList> getSqlStmtList() {
-        return sqlStmtList;
+    public void addQuery(Statement query){
+        this.sqlStmts.add(query);
     }
 
-    public void setSqlStmtList(List<StatementList> sqlStmtList) {
-        this.sqlStmtList = sqlStmtList;
+    public void setSqlStmts(List<Statement> sqlStmts) {
+        this.sqlStmts = sqlStmts;
     }
 
     public List<JavaStmtList> getJavaStmtLists() {
@@ -36,9 +35,10 @@ public class Parse extends Node{
         for (int i = 0; i < javaStmtLists.size(); i++) {
             javaStmtLists.get(i).accept(astVisitor);
         }
-        for (int i = 0; i < sqlStmtList.size(); i++) {
-            sqlStmtList.get(i).accept(astVisitor);
-        }
+        if (sqlStmts.size()>0)
+            for(int i = 0 ; i < this.sqlStmts.size() ; i++){
+                this.sqlStmts.get(i).accept(astVisitor);
+            }
     }
 
 

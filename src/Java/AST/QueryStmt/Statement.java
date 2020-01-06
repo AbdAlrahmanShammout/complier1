@@ -2,14 +2,15 @@ package Java.AST.QueryStmt;
 
 import Java.AST.Node;
 
-import java.util.ArrayList;
-//import Java.AST.Visitor.ASTVisitor;
-
 public class Statement extends Node {
 
+    private String name="";
+    public void setName(String name) {
+        this.name = name;
+    }
 
-//    ArrayList<Sqlst>
+    public String getName() {
+        return name;
+    }
 
-//    @Override
-//    public void accept(ASTVisitor astVisitor){}
 }

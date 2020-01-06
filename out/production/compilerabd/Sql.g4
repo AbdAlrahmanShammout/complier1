@@ -289,6 +289,12 @@ vacuum_stmt
 
 
 //start java javd
+declare_var_java_not_assignmen
+  :
+  K_VAR
+  IDENTIFIER (','IDENTIFIER )*
+  ';'
+  ;
 
 declare_var_java
   :
@@ -304,7 +310,7 @@ assignment_var_list_java
 
 assignment_var_java
   :
-  IDENTIFIER '=' expr
+  IDENTIFIER '=' (expr)
   ;
 
 declare_array_java
@@ -399,6 +405,7 @@ for_java_header
 
 shorten_operators_java
   : any_name_no_keyword (  ('++' | '--')   |   ('+=' | '-=' | '/=' | '^=' | '%=' | '*=') expr)
+  | ('++' | '--') any_name_no_keyword
   ;
 
   if_java_rule
@@ -418,7 +425,7 @@ shorten_operators_java
   ;
 
   condition_java
-  : expr
+  : ('(')? expr (')')?
   ;
 
 //==========================
@@ -448,22 +455,27 @@ switch_stmt
    K_BREAK ';'
    );
 
+//if_one_line
+//: ('!')? condition_java '?' if_one_line_return ':' if_one_line_return
+//;
 if_one_line
-: ('!')? condition_java '?' if_one_line_return ':' if_one_line_return (';')?
+:  expr '?' expr':' expr
 ;
-if_one_line_return
-: (expr|body_brackets_java)
-;
+
+//if_one_line_return
+//: (expr|body_brackets_java)
+//;
 
 
   java_body
   :(declare_var_java)
+  |(declare_var_java_not_assignmen)
   |(assignment_var_list_java)
   |(declare_array_java )
+  |(shorten_operators_java ';')
   |(switch_stmt )
   |(function_java_call)
   |(if_java_rule)
-  |(if_one_line)
   |(for_java_rule)
   |(while_java_rule)
   |(do_while_java_rule)
@@ -474,19 +486,15 @@ if_one_line_return
 
 
 return_stmt
-: K_RETURN (if_one_line | expr)? ';'
+: K_RETURN (expr)? ';'
 ;
 
-BOOLEAN
-   :K_TRUE
-   | K_FALSE;
+//BOOLEAN
+//   :K_TRUE
+//   | K_FALSE;
 
 
-array
-: '['
-    (expr (','expr)*)?
-    ']'
-  ;
+
 //end java javd
 
 json
@@ -587,10 +595,13 @@ conflict_clause
     OR
 */
 expr
- : array
+ : '[' (expr (','expr)*)?']'
+  | '(' expr ')'
  | json
+ | expr '?' expr ':' expr
  | literal_value
  | BIND_PARAMETER
+ | (K_TRUE | K_FALSE)
  | ( ( database_name '.' )? table_name '.' )? column_name
  | unary_operator expr
  | expr '||' expr
@@ -602,22 +613,20 @@ expr
  | expr K_AND expr
  | expr K_OR expr
  | function_name '(' ( K_DISTINCT? expr ( ',' expr )* | '*' )? ')'
- | '(' expr ')'
- | BOOLEAN
- | K_CAST '(' expr K_AS type_name ')'
- | expr K_COLLATE collation_name
- | expr K_NOT? ( K_LIKE | K_GLOB | K_REGEXP | K_MATCH ) expr ( K_ESCAPE expr )?
- | expr ( K_ISNULL | K_NOTNULL | K_NOT K_NULL )
- | expr K_IS K_NOT? expr
- | expr K_NOT? K_BETWEEN expr K_AND expr
- | expr K_NOT? K_IN ( '(' ( select_stmt
-                          | expr ( ',' expr )*
-                          )?
-                      ')'
-                    | ( database_name '.' )? table_name )
- | ( ( K_NOT )? K_EXISTS )? '(' select_stmt ')'
- | K_CASE expr? ( K_WHEN expr K_THEN expr )+ ( K_ELSE expr )? K_END
- | raise_function
+// | K_CAST '(' expr K_AS type_name ')'
+// | expr K_COLLATE collation_name
+// | expr K_NOT? ( K_LIKE | K_GLOB | K_REGEXP | K_MATCH ) expr ( K_ESCAPE expr )?
+// | expr ( K_ISNULL | K_NOTNULL | K_NOT K_NULL )
+// | expr K_IS K_NOT? expr
+// | expr K_NOT? K_BETWEEN expr K_AND expr
+// | expr K_NOT? K_IN ( '(' ( select_stmt
+//                          | expr ( ',' expr )*
+//                          )?
+//                      ')'
+//                    | ( database_name '.' )? table_name )
+// | ( ( K_NOT )? K_EXISTS )? '(' select_stmt ')'
+// | K_CASE expr? ( K_WHEN expr K_THEN expr )+ ( K_ELSE expr )? K_END
+// | raise_function
  ;
 
 
@@ -1044,6 +1053,7 @@ EQ : '==';
 NOT_EQ1 : '!=';
 NOT : '!';
 NOT_EQ2 : '<>';
+QUES : '?';
 
 // http://www.sqlite.org/lang_keywords.html
 K_ABORT : A B O R T;
@@ -1194,6 +1204,8 @@ IDENTIFIER
    ;
 
 
+tesssssst:
+K_TRUE | K_FALSE;
 
 //NUMBER
 // : DIGIT+ ( '.' DIGIT* )?
