@@ -16,6 +16,7 @@ public class JavaBody extends Node {
 
     @Override
     public void accept(ASTVisitor astVisitor) {
-        super.accept(astVisitor);
+        astVisitor.visit(this);
+
     }
 }

@@ -1,6 +1,7 @@
 package Java.AST.rule.for_stmt;
 
 import Java.AST.Node;
+import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.ConditionJava;
 import Java.AST.rule.Expr;
 import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
@@ -9,9 +10,9 @@ import Java.AST.rule.shortenOperators.ShortenJavaOperators;
 
 public class ForJavaHeader extends Node {
 
-    private AssignmentJavaListVar assignmentJavaListVar = new AssignmentJavaListVar();
-    private ConditionJava conditionJava = new ConditionJava();
-    private ShortenJavaOperators shortenJavaOperatorsFor = new ShortenJavaOperators();
+    private AssignmentJavaListVar assignmentJavaListVar;
+    private ConditionJava conditionJava;
+    private ShortenJavaOperators shortenJavaOperatorsFor;
 
 
     public AssignmentJavaListVar getAssignmentJavaListVar() {
@@ -37,4 +38,13 @@ public class ForJavaHeader extends Node {
     public void setShortenJavaOperatorsFor(ShortenJavaOperators shortenJavaOperatorsFor) {
         this.shortenJavaOperatorsFor = shortenJavaOperatorsFor;
     }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        assignmentJavaListVar.accept(astVisitor);
+        conditionJava.accept(astVisitor);
+        shortenJavaOperatorsFor.accept(astVisitor);
+    }
+
 }

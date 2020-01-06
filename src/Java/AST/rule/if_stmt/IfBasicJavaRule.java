@@ -1,6 +1,7 @@
 package Java.AST.rule.if_stmt;
 
 import Java.AST.Node;
+import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.BodyBracketsJava;
 import Java.AST.rule.ConditionJava;
 
@@ -23,4 +24,12 @@ public class IfBasicJavaRule extends Node{
     public void setBodyBracketsJava(BodyBracketsJava bodyBracketsJava) {
         this.bodyBracketsJava = bodyBracketsJava;
     }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        conditionJava.accept(astVisitor);
+        bodyBracketsJava.accept(astVisitor);
+    }
+
 }

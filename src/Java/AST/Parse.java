@@ -2,26 +2,24 @@ package Java.AST;
 
 import Java.AST.QueryStmt.Statement;
 //import Java.AST.Visitor.ASTVisitor;
+import Java.AST.QueryStmt.StatementList;
+import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.JavaStmtList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Parse extends Node{
-    private List<Statement> sqlStmts = new ArrayList<Statement>();
-    //todo add this
-    private List<JavaStmtList> javaStmtLists = new ArrayList<JavaStmtList>();
+    private List<StatementList> sqlStmtList = new ArrayList<>();
+    private List<JavaStmtList> javaStmtLists = new ArrayList<>();
 
-    public void addQuery(Statement query){
-        this.sqlStmts.add(query);
+
+    public List<StatementList> getSqlStmtList() {
+        return sqlStmtList;
     }
 
-    public void setSqlStmts(List<Statement> sqlStmts) {
-        this.sqlStmts = sqlStmts;
-    }
-
-    public List<Statement> getSqlStmts() {
-        return sqlStmts;
+    public void setSqlStmtList(List<StatementList> sqlStmtList) {
+        this.sqlStmtList = sqlStmtList;
     }
 
     public List<JavaStmtList> getJavaStmtLists() {
@@ -32,17 +30,19 @@ public class Parse extends Node{
         this.javaStmtLists = javaStmtLists;
     }
 
-    public void addJavaStmt(JavaStmtList javaStmtList){
-        this.javaStmtLists.add(javaStmtList);
-    }
-
-
     @Override
-    public String toString(){
-        return "sql stmts = "+ getSqlStmts().get(0).getName();
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        for (int i = 0; i < javaStmtLists.size(); i++) {
+            javaStmtLists.get(i).accept(astVisitor);
+        }
+        for (int i = 0; i < sqlStmtList.size(); i++) {
+            sqlStmtList.get(i).accept(astVisitor);
+        }
     }
 
-//    @Override
+
+    //    @Override
 //    public void accept(ASTVisitor astVisitor){
 //        astVisitor.visit(this);
 ////        this.sqlStmts.forEach( stmt -> stmt.accept(astVisitor));

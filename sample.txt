@@ -1,3 +1,5 @@
-vvv(var a){
-
+vvv(var a, var t, var k){
+aa=4;
+var bb=4;
+cc=4;
 }

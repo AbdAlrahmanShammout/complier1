@@ -1,11 +1,12 @@
 package Java.AST.rule.function_java_call;
 
 import Java.AST.Node;
+import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.Expr;
 
 public class Argument extends Node {
-    private Expr expr = new Expr();
-    private ArrowFunctionJava arrowFunctionJava = new ArrowFunctionJava();
+    private Expr expr;
+    private ArrowFunctionJava arrowFunctionJava;
 
     public Expr getExpr() {
         return expr;
@@ -21,5 +22,14 @@ public class Argument extends Node {
 
     public void setArrowFunctionJava(ArrowFunctionJava arrowFunctionJava) {
         this.arrowFunctionJava = arrowFunctionJava;
+    }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        if (expr!=null)
+            expr.accept(astVisitor);
+        if (arrowFunctionJava!=null)
+            arrowFunctionJava.accept(astVisitor);
     }
 }

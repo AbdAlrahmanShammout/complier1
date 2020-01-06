@@ -3,13 +3,10 @@ package Java.AST.rule.assignmentVar;
 import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.Expr;
-import Java.AST.rule.JavaBody;
-
-import java.util.ArrayList;
 
 public class AssignmentJavaVar extends Node {
     private String name;
-    private Expr ExprVal = new Expr();
+    private Expr ExprVal;
 
     public String getName() {
         return name;

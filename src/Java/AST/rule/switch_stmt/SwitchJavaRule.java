@@ -35,4 +35,14 @@ public class SwitchJavaRule extends JavaBody {
     }
 
 
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        for (int i = 0; i < switchJavaCases.size(); i++) {
+            switchJavaCases.get(i).accept(astVisitor);
+        }
+        for (int i = 0; i < javaBodies.size(); i++) {
+            javaBodies.get(i).accept(astVisitor);
+        }
+    }
 }

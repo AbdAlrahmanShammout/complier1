@@ -1,9 +1,10 @@
 package Java.AST.rule;
 
 import Java.AST.Node;
+import Java.AST.Visitor.ASTVisitor;
 
 public class ConditionJava extends Node{
-    private Expr expr = new Expr();
+    private Expr expr;
 
     public Expr getExpr() {
         return expr;
@@ -11,5 +12,11 @@ public class ConditionJava extends Node{
 
     public void setExpr(Expr expr) {
         this.expr = expr;
+    }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        expr.accept(astVisitor);
     }
 }

@@ -1,8 +1,10 @@
 package Java.AST.rule.shortenOperators;
 
+import Java.AST.Node;
+import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.Expr;
 
-public class ShortenJavaOperators {
+public class ShortenJavaOperators extends Node {
     private String name;
     private String operator;
     private Expr exprVal;
@@ -29,5 +31,12 @@ public class ShortenJavaOperators {
 
     public void setExprVal(Expr exprVal) {
         this.exprVal = exprVal;
+    }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        if (exprVal!=null)
+            exprVal.accept(astVisitor);
     }
 }

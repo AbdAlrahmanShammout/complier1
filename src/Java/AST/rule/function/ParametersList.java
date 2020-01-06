@@ -1,6 +1,7 @@
 package Java.AST.rule.function;
 
 import Java.AST.Node;
+import Java.AST.Visitor.ASTVisitor;
 
 import java.util.ArrayList;
 
@@ -23,5 +24,14 @@ public class ParametersList extends Node {
 
     public void setDefaultParameters(ArrayList<DefaultParameters> defaultParameters) {
         this.defaultParameters = defaultParameters;
+    }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        for (int i = 0; i < defaultParameters.size(); i++) {
+            defaultParameters.get(i).accept(astVisitor);
+        }
+
     }
 }

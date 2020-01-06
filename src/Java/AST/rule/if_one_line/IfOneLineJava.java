@@ -1,20 +1,21 @@
 package Java.AST.rule.if_one_line;
 
+import Java.AST.Visitor.ASTVisitor;
 import Java.AST.rule.ConditionJava;
 import Java.AST.rule.JavaBody;
 
 import java.util.ArrayList;
 
 public class IfOneLineJava extends JavaBody {
-    private Boolean Not;
-    private ConditionJava conditionJava = new ConditionJava();
+    private boolean Not;
+    private ConditionJava conditionJava;
     private ArrayList<IfOneLineReturnJava> ifOneLineReturnJavas = new ArrayList<>();
 
-    public Boolean getNot() {
+    public boolean getNot() {
         return Not;
     }
 
-    public void setNot(Boolean not) {
+    public void setNot(boolean not) {
         Not = not;
     }
 
@@ -32,5 +33,14 @@ public class IfOneLineJava extends JavaBody {
 
     public void setConditionJava(ConditionJava conditionJava) {
         this.conditionJava = conditionJava;
+    }
+
+    @Override
+    public void accept(ASTVisitor astVisitor) {
+        astVisitor.visit(this);
+        conditionJava.accept(astVisitor);
+        for (int i = 0; i < ifOneLineReturnJavas.size(); i++) {
+            ifOneLineReturnJavas.get(i).accept(astVisitor);
+        }
     }
 }

@@ -3,6 +3,7 @@ package Java.Base;
 import Java.AST.Parse;
 import Java.AST.QueryStmt.SelectStmt;
 import Java.AST.QueryStmt.Statement;
+import Java.AST.QueryStmt.StatementList;
 import Java.AST.rule.*;
 import Java.AST.rule.assignmentVar.AssignmentJavaListVar;
 import Java.AST.rule.assignmentVar.AssignmentJavaVar;
@@ -45,17 +46,15 @@ public class BaseVisitor extends SqlBaseVisitor {
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override public Parse visitParse(SqlParser.ParseContext ctx) {
-        System.out.println("visitParse");
+        System.out.println("visit Parse");
         Parse p = new Parse();
-        if (ctx.java_stmt_list() != null){
-            for (int i = 0; i < ctx.java_stmt_list().size(); i++) {
-                p.addJavaStmt(visitJava_stmt_list(ctx.java_stmt_list(i)));
-            }
+
+        for (int i = 0; i < ctx.java_stmt_list().size(); i++) {
+            p.getJavaStmtLists().add(visitJava_stmt_list(ctx.java_stmt_list(i)));
         }
 
-        if (ctx.sql_stmt_list()!=null && ctx.sql_stmt_list().size()>0) {
-            List<Statement> sqlStmts = (List<Statement>) visitSql_stmt_list(ctx.sql_stmt_list(0));
-            p.setSqlStmts(sqlStmts);
+        for (int i = 0; i < ctx.sql_stmt_list().size(); i++) {
+            p.getSqlStmtList().add(visitSql_stmt_list(ctx.sql_stmt_list(i)));
         }
 
         p.setLine(ctx.getStart().getLine()); //get line number
@@ -66,7 +65,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public JavaStmtList visitJava_stmt_list(SqlParser.Java_stmt_listContext ctx) {
-        System.out.println("visitJava_stmt_list");
+        System.out.println("visit Java_stmt_list");
         JavaStmtList javaStmtList = new JavaStmtList();
         for (int i = 0; i < ctx.java_stmt().size(); i++) {
             javaStmtList.getJavaStmts().add(visitJava_stmt(ctx.java_stmt(i)));
@@ -77,7 +76,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public JavaStmt visitJava_stmt(SqlParser.Java_stmtContext ctx) {
-        System.out.println("visitJava_stmt");
+        System.out.println("visit Java_stmt");
         FunctionJavaRule functionJavaRule = new FunctionJavaRule();
         functionJavaRule.setFunctionJavaHeader(visitFunction_java_header(ctx.function_java_rule().function_java_header()));
         if (ctx.function_java_rule().java_body()!=null){
@@ -91,19 +90,19 @@ public class BaseVisitor extends SqlBaseVisitor {
     //============Function_java============
     @Override
     public FunctionJavaHeader visitFunction_java_header(SqlParser.Function_java_headerContext ctx) {
-        System.out.println("visitFunction_java_header");
+        System.out.println("visit Function_java_header");
         FunctionJavaHeader functionJavaHeader = new FunctionJavaHeader();
-        functionJavaHeader.setFunctionName(ctx.function_java_name().toString());
+        functionJavaHeader.setFunctionName(ctx.function_java_name().getText());
         functionJavaHeader.setParametersList(visitParameters_list(ctx.parameters_list()));
         return  functionJavaHeader;
     }
 
     @Override
     public ParametersList visitParameters_list(SqlParser.Parameters_listContext ctx) {
-        System.out.println("visitParameters_list");
+        System.out.println("visit Parameters_list");
         ParametersList parametersList = new ParametersList();
         for (int i = 0; i < ctx.IDENTIFIER().size(); i++) {
-            parametersList.getParametersNames().add(ctx.IDENTIFIER(i).toString());
+            parametersList.getParametersNames().add(ctx.IDENTIFIER(i).getText());
         }
         for (int i = 0; i < ctx.default_parameters().size(); i++) {
             parametersList.getDefaultParameters().add(visitDefault_parameters(ctx.default_parameters(i)));
@@ -113,9 +112,9 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public DefaultParameters visitDefault_parameters(SqlParser.Default_parametersContext ctx) {
-        System.out.println("visitDefault_parameters");
+        System.out.println("visit Default_parameters");
         DefaultParameters defaultParameters = new DefaultParameters();
-        defaultParameters.setParameterName(ctx.IDENTIFIER().toString());
+        defaultParameters.setParameterName(ctx.IDENTIFIER().getText());
         defaultParameters.setParameterVal(visitExpr(ctx.expr()));
         return defaultParameters;
     }
@@ -130,7 +129,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public DeclareJavaVar visitDeclare_var_java(SqlParser.Declare_var_javaContext ctx) {
-        System.out.println("visitDeclare_var_java");
+        System.out.println("visit Declare_var_java");
         DeclareJavaVar declareJavaVar = new DeclareJavaVar();
         declareJavaVar.setAssignmentJavaListVar(visitAssignment_var_list_java(ctx.assignment_var_list_java()));
         return declareJavaVar;
@@ -138,7 +137,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public AssignmentJavaListVar visitAssignment_var_list_java(SqlParser.Assignment_var_list_javaContext ctx) {
-        System.out.println("visitAssignment_var_list_java");
+        System.out.println("visit Assignment_var_list_java");
         AssignmentJavaListVar assignmentJavaListVar = new AssignmentJavaListVar();
         for (int i = 0; i < ctx.assignment_var_java().size(); i++) {
             assignmentJavaListVar.getAssignmentJavaVars().add(visitAssignment_var_java(ctx.assignment_var_java(i)));
@@ -148,9 +147,9 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public AssignmentJavaVar visitAssignment_var_java(SqlParser.Assignment_var_javaContext ctx) {
-        System.out.println("visitAssignment_var_java");
+        System.out.println("visit Assignment_var_java");
         AssignmentJavaVar assignmentJavaVar = new AssignmentJavaVar();
-        assignmentJavaVar.setName(ctx.IDENTIFIER().toString());
+        assignmentJavaVar.setName(ctx.IDENTIFIER().getText());
         assignmentJavaVar.setExprVal(visitExpr(ctx.expr()));
         return assignmentJavaVar;
     }
@@ -161,9 +160,9 @@ public class BaseVisitor extends SqlBaseVisitor {
     //============declare_array_java============
     @Override
     public DeclareJavaArray visitDeclare_array_java(SqlParser.Declare_array_javaContext ctx) {
-        System.out.println("visitDeclare_array_java");
+        System.out.println("visit Declare_array_java");
         DeclareJavaArray declareJavaArray = new DeclareJavaArray();
-        declareJavaArray.setName(ctx.IDENTIFIER().toString());
+        declareJavaArray.setName(ctx.IDENTIFIER().getText());
         declareJavaArray.setArray(visitExpr(ctx.expr()));
         return  declareJavaArray;
     }
@@ -174,9 +173,9 @@ public class BaseVisitor extends SqlBaseVisitor {
     //============switch_stmt============
     @Override
     public SwitchJavaRule visitSwitch_stmt(SqlParser.Switch_stmtContext ctx) {
-        System.out.println("visitSwitch_stmt");
+        System.out.println("visit Switch_stmt");
         SwitchJavaRule switchJavaRule = new SwitchJavaRule();
-        switchJavaRule.setSwitchKey(ctx.IDENTIFIER().toString());
+        switchJavaRule.setSwitchKey(ctx.IDENTIFIER().getText());
         for (int i = 0; i < ctx.switch_case().size(); i++) {
             switchJavaRule.getSwitchJavaCases().add(visitSwitch_case(ctx.switch_case(i)));
         }
@@ -188,7 +187,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public SwitchJavaCase visitSwitch_case(SqlParser.Switch_caseContext ctx) {
-        System.out.println("visitSwitch_case");
+        System.out.println("visit Switch_case");
         SwitchJavaCase switchJavaCase = new SwitchJavaCase();
         switchJavaCase.setCaseExpr(visitExpr(ctx.expr()));
         for (int i = 0; i < ctx.java_body().size(); i++) {
@@ -204,16 +203,16 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public FunctionJavaCall visitFunction_java_call(SqlParser.Function_java_callContext ctx) {
-        System.out.println("visitFunction_java_call");
+        System.out.println("visit Function_java_call");
         FunctionJavaCall functionJavaCall = new FunctionJavaCall();
-        functionJavaCall.setFunctionName(ctx.function_java_name().toString());
+        functionJavaCall.setFunctionName(ctx.function_java_name().getText());
         functionJavaCall.setArgumentsList(visitArguments_list(ctx.arguments_list()));
         return functionJavaCall;
     }
 
     @Override
     public ArgumentsList visitArguments_list(SqlParser.Arguments_listContext ctx) {
-        System.out.println("visitArguments_list");
+        System.out.println("visit Arguments_list");
         ArgumentsList argumentsList = new ArgumentsList();
         if (ctx.argument() != null) {
             for (int i = 0; i < ctx.argument().size(); i++) {
@@ -225,7 +224,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public Argument visitArgument(SqlParser.ArgumentContext ctx) {
-        System.out.println("visitArgument");
+        System.out.println("visit Argument");
         Argument argument = new Argument();
         if (ctx.expr() != null) {
             argument.setExpr(visitExpr(ctx.expr()));
@@ -238,7 +237,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public ArrowFunctionJava visitArrow_function_java(SqlParser.Arrow_function_javaContext ctx) {
-        System.out.println("visitArrow_function_java");
+        System.out.println("visit Arrow_function_java");
         ArrowFunctionJava arrowFunctionJava = new ArrowFunctionJava();
         arrowFunctionJava.setParametersList(visitParameters_list(ctx.parameters_list()));
         arrowFunctionJava.setReturnExpr(visitExpr(ctx.expr()));
@@ -249,7 +248,7 @@ public class BaseVisitor extends SqlBaseVisitor {
     //============if_java============
     @Override
     public IfJavaRule visitIf_java_rule(SqlParser.If_java_ruleContext ctx) {
-        System.out.println("visitIf_java_rule");
+        System.out.println("visit If_java_rule");
         IfJavaRule ifJavaRule  = new IfJavaRule();
         for (int i = 0; i < ctx.if_basic_java_rule().size(); i++) {
             ifJavaRule.getIfBasicJavaRules().add(visitIf_basic_java_rule(ctx.if_basic_java_rule(i)));
@@ -262,7 +261,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public IfBasicJavaRule visitIf_basic_java_rule(SqlParser.If_basic_java_ruleContext ctx) {
-        System.out.println("visitIf_basic_java_rule");
+        System.out.println("visit If_basic_java_rule");
         IfBasicJavaRule ifBasicJavaRule = new IfBasicJavaRule();
         ifBasicJavaRule.setConditionJava(visitCondition_java(ctx.condition_java()));
         ifBasicJavaRule.setBodyBracketsJava(visitBody_brackets_java(ctx.body_brackets_java()));
@@ -271,7 +270,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public ConditionJava visitCondition_java(SqlParser.Condition_javaContext ctx) {
-        System.out.println("visitCondition_java");
+        System.out.println("visit Condition_java");
         ConditionJava conditionJava = new ConditionJava();
         conditionJava.setExpr(visitExpr(ctx.expr()));
         return conditionJava;
@@ -285,7 +284,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public IfOneLineJava visitIf_one_line(SqlParser.If_one_lineContext ctx) {
-        System.out.println("visitIf_one_line");
+        System.out.println("visit If_one_line");
         IfOneLineJava ifOneLineJava = new IfOneLineJava();
         if (ctx.NOT()!=null){
             ifOneLineJava.setNot(true);
@@ -299,7 +298,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public IfOneLineReturnJava visitIf_one_line_return(SqlParser.If_one_line_returnContext ctx) {
-        System.out.println("visitIf_one_line_return");
+        System.out.println("visit If_one_line_return");
         IfOneLineReturnJava ifOneLineReturnJava = new IfOneLineReturnJava();
         if (ctx.expr()!=null){
             ifOneLineReturnJava.setExprReturn(visitExpr(ctx.expr()));
@@ -317,7 +316,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public ForJavaRule visitFor_java_rule(SqlParser.For_java_ruleContext ctx) {
-        System.out.println("visitFor_java_rule");
+        System.out.println("visit For_java_rule");
         ForJavaRule forJavaRule = new ForJavaRule();
         forJavaRule.setForJavaHeader(visitFor_java_header(ctx.for_java_header()));
         forJavaRule.setBodyBracketsJava(visitBody_brackets_java(ctx.body_brackets_java()));
@@ -326,7 +325,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public ForJavaHeader visitFor_java_header(SqlParser.For_java_headerContext ctx) {
-        System.out.println("visitFor_java_header");
+        System.out.println("visit For_java_header");
         ForJavaHeader forJavaHeader = new ForJavaHeader();
         forJavaHeader.setAssignmentJavaListVar(visitAssignment_var_list_java(ctx.assignment_var_list_java()));
         forJavaHeader.setConditionJava(visitCondition_java(ctx.condition_java()));
@@ -339,15 +338,16 @@ public class BaseVisitor extends SqlBaseVisitor {
     //===============while_java=====================
     @Override
     public WhileJavaRule visitWhile_java_rule(SqlParser.While_java_ruleContext ctx) {
-        System.out.println("visitWhile_java_rule");
+        System.out.println("visit While_java_rule");
         WhileJavaRule whileJavaRule = new WhileJavaRule();
         whileJavaRule.setWhileJavaHeader(visitWhile_java_header(ctx.while_java_header()));
+        whileJavaRule.setBodyBracketsJava(visitBody_brackets_java(ctx.body_brackets_java()));
         return whileJavaRule;
     }
 
     @Override
     public WhileJavaHeader visitWhile_java_header(SqlParser.While_java_headerContext ctx) {
-        System.out.println("visitWhile_java_header");
+        System.out.println("visit While_java_header");
         WhileJavaHeader whileJavaHeader = new WhileJavaHeader();
         whileJavaHeader.setConditionJava(visitCondition_java(ctx.condition_java()));
         return whileJavaHeader;
@@ -359,7 +359,7 @@ public class BaseVisitor extends SqlBaseVisitor {
     //===============do_while_java=====================
     @Override
     public DoWhileJavaRule visitDo_while_java_rule(SqlParser.Do_while_java_ruleContext ctx) {
-        System.out.println("visitDo_while_java_rule");
+        System.out.println("visit Do_while_java_rule");
         DoWhileJavaRule doWhileJavaRule = new DoWhileJavaRule();
         doWhileJavaRule.setBodyBracketsJava(visitBody_brackets_java(ctx.body_brackets_java()));
         doWhileJavaRule.setWhileJavaHeader(visitWhile_java_header(ctx.while_java_header()));
@@ -372,7 +372,7 @@ public class BaseVisitor extends SqlBaseVisitor {
     //===============print_java=====================
     @Override
     public PrintJava visitPrint_java(SqlParser.Print_javaContext ctx) {
-        System.out.println("visitPrint_java");
+        System.out.println("visit Print_java");
         PrintJava printJava = new PrintJava();
         printJava.setExprPrint(visitExpr(ctx.expr()));
         return printJava;
@@ -382,7 +382,7 @@ public class BaseVisitor extends SqlBaseVisitor {
     //===============print_java=====================
     @Override
     public ReturnJava visitReturn_stmt(SqlParser.Return_stmtContext ctx) {
-        System.out.println("visitReturn_stmt");
+        System.out.println("visit Return_stmt");
         ReturnJava returnJava = new ReturnJava();
         if (ctx.if_one_line()!=null){
             returnJava.setIfOneLineJava(visitIf_one_line(ctx.if_one_line()));
@@ -397,32 +397,35 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public ShortenJavaOperators visitShorten_operators_java(SqlParser.Shorten_operators_javaContext ctx) {
-        System.out.println("visitShorten_operators_java");
+        System.out.println("visit Shorten_operators_java");
         ShortenJavaOperators shortenJavaOperators = new ShortenJavaOperators();
-        shortenJavaOperators.setName(ctx.any_name_no_keyword().toString());
+        shortenJavaOperators.setName(ctx.any_name_no_keyword().getText());
+        if (ctx.expr()!=null){
+            shortenJavaOperators.setExprVal(visitExpr(ctx.expr()));
+        }
         if (ctx.PLUS_PLUS()!=null){
-            shortenJavaOperators.setOperator(ctx.PLUS_PLUS().toString());
+            shortenJavaOperators.setOperator(ctx.PLUS_PLUS().getText());
         }else if (ctx.MINUS_MINUS()!=null){
-            shortenJavaOperators.setOperator(ctx.MINUS_MINUS().toString());
+            shortenJavaOperators.setOperator(ctx.MINUS_MINUS().getText());
         }else if (ctx.PLUS_ASSIGN()!=null){
-            shortenJavaOperators.setOperator(ctx.PLUS_ASSIGN().toString());
+            shortenJavaOperators.setOperator(ctx.PLUS_ASSIGN().getText());
         }else if (ctx.MINUS_ASSIGN()!=null){
-            shortenJavaOperators.setOperator(ctx.MINUS_ASSIGN().toString());
+            shortenJavaOperators.setOperator(ctx.MINUS_ASSIGN().getText());
         }else if (ctx.DIV_ASSIGN()!=null){
-            shortenJavaOperators.setOperator(ctx.DIV_ASSIGN().toString());
+            shortenJavaOperators.setOperator(ctx.DIV_ASSIGN().getText());
         }else if (ctx.POWER_ASSIGN()!=null){
-            shortenJavaOperators.setOperator(ctx.POWER_ASSIGN().toString());
+            shortenJavaOperators.setOperator(ctx.POWER_ASSIGN().getText());
         }else if (ctx.MOD_ASSIGN()!=null){
-            shortenJavaOperators.setOperator(ctx.MOD_ASSIGN().toString());
+            shortenJavaOperators.setOperator(ctx.MOD_ASSIGN().getText());
         }else if (ctx.STAR_ASSIGN()!=null){
-            shortenJavaOperators.setOperator(ctx.STAR_ASSIGN().toString());
+            shortenJavaOperators.setOperator(ctx.STAR_ASSIGN().getText());
         }
         return shortenJavaOperators;
     }
 
     @Override
     public JavaBody visitJava_body(SqlParser.Java_bodyContext ctx) {
-        System.out.println("visitJava_body");
+        System.out.println("visit Java_body");
         if (ctx.declare_var_java() != null){
             DeclareJavaVar declareJavaVar = visitDeclare_var_java(ctx.declare_var_java());
             return declareJavaVar;
@@ -481,7 +484,7 @@ public class BaseVisitor extends SqlBaseVisitor {
 
     @Override
     public BodyBracketsJava visitBody_brackets_java(SqlParser.Body_brackets_javaContext ctx) {
-        System.out.println("visitBody_brackets_java");
+        System.out.println("visit Body_brackets_java");
         BodyBracketsJava bodyBracketsJava = new BodyBracketsJava();
         //todo remove line check for test
         if (ctx.java_body() != null){
@@ -499,7 +502,7 @@ public class BaseVisitor extends SqlBaseVisitor {
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override public  Expr visitExpr(SqlParser.ExprContext ctx) {
-        System.out.println("visitExpr");
+        System.out.println("visit Expr");
         return new Expr(); }
 
 
@@ -513,22 +516,21 @@ public class BaseVisitor extends SqlBaseVisitor {
 
 
     @Override
-    public Statement visitSql_stmt(SqlParser.Sql_stmtContext ctx) {
-        System.out.println("visitSql_stmt");
-        Statement statement = new SelectStmt();
-        return statement;
+    public StatementList visitSql_stmt_list(SqlParser.Sql_stmt_listContext ctx) {
+        System.out.println("visit Sql_stmt_list");
+        StatementList statementList = new StatementList();
+        for (int i =0; i < ctx.sql_stmt().size() ; i++){
+            statementList.getStatements().add(visitSql_stmt(ctx.sql_stmt(i)));
+        }
+        return statementList;
     }
 
     @Override
-    public List<Statement> visitSql_stmt_list(SqlParser.Sql_stmt_listContext ctx) {
-        System.out.println("visitSql_stmt_list");
+    public Statement visitSql_stmt(SqlParser.Sql_stmtContext ctx) {
+        System.out.println("visit Sql_stmt");
+        Statement statement = new SelectStmt();
 
-        List<Statement> sqlStmt = new ArrayList<Statement>();
-        for (int i =0; i < ctx.sql_stmt().size() ; i++){
-            sqlStmt.add((Statement) visitSql_stmt(ctx.sql_stmt(i)));
-        }
-
-        return sqlStmt;
+        return statement;
     }
 
     /**
@@ -550,7 +552,7 @@ public class BaseVisitor extends SqlBaseVisitor {
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override public  Object visitSelect_stmt(SqlParser.Select_stmtContext ctx) {
-        System.out.println("visitSelect_stmt");
+        System.out.println("visit Select_stmt");
 
         return visitChildren(ctx); }
     /**

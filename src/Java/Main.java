@@ -1,6 +1,7 @@
 package Java;
 
 import Java.AST.Parse;
+import Java.AST.Visitor.BaseASTVisitor;
 import Java.Base.BaseVisitor;
 import gen.SqlLexer;
 import gen.SqlParser;
@@ -17,8 +18,6 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String aaa = "4sa";
-       aaa = (aaa.length() < 2)? "" : "ss" ;
         try {
             String source = "sample.txt";
             CharStream cs = fromFileName(source);
@@ -29,12 +28,18 @@ public class Main {
 
             Parse p = (Parse) new BaseVisitor().visit(tree);
 
-            //p.accept(new BaseASTVisitor());
+            p.accept(new BaseASTVisitor());
 
-            System.out.println(p.toString());
+            //System.out.println(p.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    public static boolean ch(String s){
+        return s == null;
     }
 }

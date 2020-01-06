@@ -329,9 +329,11 @@ default_parameters
   ;
 
 arguments_list
-  : '(' ((arrow_function_java | expr) (',' (arrow_function_java | expr))*)? ')'
+  : '(' (argument (',' argument)*)? ')'
   ;
-//(((arrow_function_java | expr) (',' arrow_function_java | expr)*)?)
+argument
+  : (arrow_function_java | expr);
+
 arrow_function_java
   : K_FUNCTION
   parameters_list
@@ -389,14 +391,14 @@ for_java_rule
 for_java_header
   :K_FOR '('
    K_VAR? assignment_var_list_java
-   expr
+   condition_java
    ';'
    shorten_operators_java
   ')'
   ;
 
 shorten_operators_java
-  : any_name_no_keyword ('++' || '--' || '+=' expr || '-=' expr || '/=' expr || '^=' expr || '%=' expr || '*=' expr)
+  : any_name_no_keyword (  ('++' | '--')   |   ('+=' | '-=' | '/=' | '^=' | '%=' | '*=') expr)
   ;
 
   if_java_rule
@@ -447,9 +449,11 @@ switch_stmt
    );
 
 if_one_line
-: ('(' expr ')'| expr) '?' (expr|body_brackets_java) ':' (expr|body_brackets_java) (';')?
+: ('!')? condition_java '?' if_one_line_return ':' if_one_line_return (';')?
 ;
-
+if_one_line_return
+: (expr|body_brackets_java)
+;
 
 
   java_body
@@ -465,10 +469,13 @@ if_one_line
   |(do_while_java_rule)
   |(print_java)
   | K_BREAK ';'
-  | K_RETURN (if_one_line | expr)? ';'
-
+  | return_stmt
   ;
 
+
+return_stmt
+: K_RETURN (if_one_line | expr)? ';'
+;
 
 BOOLEAN
    :K_TRUE
@@ -1011,12 +1018,20 @@ CLOSE_BRAKET : ']';
 COMMA : ',';
 ASSIGN : '=';
 STAR : '*';
+STAR_ASSIGN : '*=';
 PLUS : '+';
+PLUS_PLUS : '++';
+PLUS_ASSIGN : '+=';
 MINUS : '-';
+MINUS_MINUS : '--';
+MINUS_ASSIGN : '-=';
+POWER_ASSIGN : '^=';
 TILDE : '~';
 PIPE2 : '||';
 DIV : '/';
+DIV_ASSIGN : '/=';
 MOD : '%';
+MOD_ASSIGN : '%=';
 LT2 : '<<';
 GT2 : '>>';
 AMP : '&';
@@ -1027,6 +1042,7 @@ GT : '>';
 GT_EQ : '>=';
 EQ : '==';
 NOT_EQ1 : '!=';
+NOT : '!';
 NOT_EQ2 : '<>';
 
 // http://www.sqlite.org/lang_keywords.html
