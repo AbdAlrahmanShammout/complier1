@@ -5,8 +5,8 @@ import Java.AST.Node;
 import Java.AST.Visitor.ASTVisitor;
 
 public class ColumnDefaultValue extends Node {
-    SignedNumber signedNumber;
-    LiteralValue literalValuel;
+    private SignedNumber signedNumber;
+    private LiteralValue literalValuel;
 
     public SignedNumber getSignedNumber() {
         return signedNumber;

@@ -721,6 +721,7 @@ public class BaseVisitor extends SqlBaseVisitor {
         if(ctx.alter_table_stmt()!=null)
             s=visitAlter_table_stmt(ctx.alter_table_stmt());
 
+
         return s;
 //        return visitChildren(ctx);
     }

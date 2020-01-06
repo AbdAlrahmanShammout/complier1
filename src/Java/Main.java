@@ -26,6 +26,7 @@ public class Main {
             SqlParser parser = new SqlParser(token);
             ParseTree tree = parser.parse();
 
+
             Parse p = (Parse) new BaseVisitor().visit(tree);
 
             p.accept(new BaseASTVisitor());

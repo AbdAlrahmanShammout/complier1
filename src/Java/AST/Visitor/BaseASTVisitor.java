@@ -363,7 +363,6 @@ public class BaseASTVisitor implements ASTVisitor {
         System.out.println("\nast Statement ");
     }
 
-
     @Override
     public void visit(SelectStmt selectStmt) {
         System.out.println("\nast selectStmt ");
@@ -392,6 +391,7 @@ public class BaseASTVisitor implements ASTVisitor {
         if(signedNumber.isStar())
             System.out.println("*");
     }
+
     @Override
     public void visit(TableOrSubquery tableOrSubquery) {
         System.out.println("\nast TableOrSubquery ");
@@ -407,10 +407,11 @@ public class BaseASTVisitor implements ASTVisitor {
         if (!tableOrSubquery.getIndexName().getName().equals("")){
             System.out.println("Index name is \""+tableOrSubquery.getIndexName().getName()+"\"");
         }
-        if (tableOrSubquery.getNotIndexed()==true){
+        if (tableOrSubquery.getNotIndexed()){
             System.out.println("NotIndexed");
         }
     }
+
     @Override
     public void visit(AlterTableAddConstraint alterTableAddConstraint) {
         System.out.println("\nast alterTableAddConstraint ");
@@ -418,6 +419,7 @@ public class BaseASTVisitor implements ASTVisitor {
             System.out.println("table name is \""+alterTableAddConstraint.getAny_name().getName()+"\"");
 
     }
+
     @Override
     public void visit(TableConstraint tableConstraint) {
         System.out.println("\nast tableConstraint");
@@ -452,15 +454,12 @@ public class BaseASTVisitor implements ASTVisitor {
     public void visit(TypeName typeName) {
         System.out.println("\nast typeName");
         System.out.println(typeName.getName().getName());
-        if(typeName.getAny_name().size()>0)
-        {
-            for(int i=0;i<typeName.getAny_name().size();i++)
-            {
+        if(typeName.getAny_name().size()>0) {
+            for(int i=0;i<typeName.getAny_name().size();i++) {
                 System.out.println(typeName.getAny_name().get(i).getName());
             }
         }
     }
-
 
     @Override
     public void visit(DropTableStmt dropTableStmt) {
@@ -472,6 +471,7 @@ public class BaseASTVisitor implements ASTVisitor {
         System.out.println(dropTableStmt.getTableName().getName());
 
     }
+
     @Override
     public void visit(QualifiedTableName qualifiedTableName) {
         System.out.println("\nast qualifiedTableName ");
@@ -488,7 +488,6 @@ public class BaseASTVisitor implements ASTVisitor {
     @Override
     public void visit(UpdateStmt updateStmt) {
         System.out.println("\nast updateStmt ");
-
         for(int i=0;i<updateStmt.getQolumnNames().size();i++)
             System.out.println(updateStmt.getQolumnNames().get(i).getName());
     }
@@ -503,6 +502,7 @@ public class BaseASTVisitor implements ASTVisitor {
             System.out.println(alterTableStmt.getNew_table_name().getName());
 
     }
+
     @Override
     public void visit(ColumnDef columnDef) {
         System.out.println("\nast ColumnDef");
@@ -515,11 +515,11 @@ public class BaseASTVisitor implements ASTVisitor {
     @Override
     public void visit(JoinOperator joinOperator) {
         System.out.println("\nast joinOperator");
-        if(joinOperator.getInner()!=false)
+        if(joinOperator.getInner())
             System.out.println(false);
-        if(joinOperator.getLeft()!=false)
+        if(joinOperator.getLeft())
             System.out.println("Left");
-        if(joinOperator.getOuter()!=false)
+        if(joinOperator.getOuter())
             System.out.println("outer");
     }
 
@@ -529,26 +529,28 @@ public class BaseASTVisitor implements ASTVisitor {
         if (orderingTerm.getCollationName()!=null)
             if(!orderingTerm.getCollationName().getName().equals(""))
                 System.out.println(orderingTerm.getCollationName().getName());
-        if(orderingTerm.getAsc()!=false)
+        if(orderingTerm.getAsc())
             System.out.println("Asc");
-        if(orderingTerm.getDesc()!=false)
+        if(orderingTerm.getDesc())
             System.out.println("Desc");
 
     }
+
     @Override
     public void visit(SelectOrValues selectOrValues) {
         System.out.println("\nast SelectOrValues");
-        if (selectOrValues.getDistinct()==true){
+        if (selectOrValues.getDistinct()){
             System.out.println("Distinct");
         }
-        if (selectOrValues.getAll()==true){
+        if (selectOrValues.getAll()){
             System.out.println("All");
         }
     }
+
     @Override
     public void visit(ResultColumn resultColumn) {
         System.out.println("\nast ResultColumn");
-        if (resultColumn.getStar()!=false){
+        if (resultColumn.getStar()){
             System.out.println("*");
         }
         if (!resultColumn.getTableName().getName().equals("")){
@@ -558,6 +560,7 @@ public class BaseASTVisitor implements ASTVisitor {
             System.out.println(resultColumn.getColumnAlias().getName());
         }
     }
+
     @Override
     public void visit(ForeignKeyClause foreignKeyClause) {
         System.out.println("\nast foreignKeyClause");
@@ -594,6 +597,7 @@ public class BaseASTVisitor implements ASTVisitor {
             System.out.println(creatStmt.getTable_name().getName());
         }
     }
+
     @Override
     public void visit(ColumnConstraint columnConstraint) {
         System.out.println("\nast ColumnConstraint ");

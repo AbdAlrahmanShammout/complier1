@@ -1,3 +1,7 @@
-UPDATE Customers
-SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
-WHERE CustomerID = 2;
+func1(var x, var y,var z= 3 , var xx = "y"){
+
+var c = func(x,y);
+if (c){
+  var res  = z == 25 ? (xx == "yy" ? "yy" : xx) : (xx == "xx" ? "ff" : "bb");
+}
+}
